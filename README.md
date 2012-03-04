@@ -12,6 +12,7 @@ None. This is made by pure coffee script.
 Usage
 =====
 This is an example of Naive Bayes classifier.
+
 ```coffeescript
 Classifier = require('/src/classifier')
 getWords = (text) ->
