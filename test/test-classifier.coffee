@@ -93,14 +93,14 @@ vows
                 assert.equal topic.classify('quick money'), 'good'
 
     .addBatch
-        'a naive Bayse classifier instance':
+        'a naive Bayes classifier instance':
             topic: ->
                 getWords = (text) ->
                     words = (word for word in text.split(/\s+/) when 2 < word.length and word.length < 20)
                     output = {}
                     output[words[key]] = words[key] for key in [0...words.length]
                     value for key, value of output
-                cl = new Classifier.NaiveBayseClassifier(getWords)
+                cl = new Classifier.NaiveBayesClassifier(getWords)
                 cl.training('Nobody owns the water.','good') 
                 cl.training('the quick rabbit jumps fences','good') 
                 cl.training('buy pharmaceuticals now','bad') 

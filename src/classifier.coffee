@@ -109,7 +109,7 @@ class FisherClassifier extends Classifier
 module.exports.FisherClassifier = FisherClassifier
 
 
-class NaiveBayseClassifier extends Classifier
+class NaiveBayesClassifier extends Classifier
     constructor: (getFeatureFunc) ->
         super getFeatureFunc
         @thresholds = []
@@ -145,6 +145,6 @@ class NaiveBayseClassifier extends Classifier
             return 'unknown' if probs[category] * @getThreshold(best) > probs[best]
         best
 
-module.exports.NaiveBayseClassifier = NaiveBayseClassifier
+module.exports.NaiveBayesClassifier = NaiveBayesClassifier
 
 
