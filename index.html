@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Classifier : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Classifier</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/sonesuke/classifier">Fork Me on GitHub</a>
+
+          <h1 id="project_title">Classifier</h1>
+          <h2 id="project_tagline"></h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/sonesuke/classifier/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/sonesuke/classifier/tarball/master">Download this project as a tar.gz file</a>
+          </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Classifier</h1>
+
+<p>This library has several classifier as following.</p>
+
+<ul>
+<li>Naive Bayes Classifier</li>
+<li>Fisher Classifier</li>
+</ul><h1>Dependencies</h1>
+
+<p>None. This is made by pure coffee script.</p>
+
+<h1>Usage</h1>
+
+<p>This is an example of Naive Bayes classifier.</p>
+
+<div class="highlight">
+<pre><span class="nv">Classifier = </span><span class="nx">require</span><span class="p">(</span><span class="s">'/src/classifier'</span><span class="p">)</span>
+
+<span class="c1"># This is a function to tokenize. </span>
+<span class="nv">getWords = </span><span class="nf">(text) -&gt;</span>
+    <span class="nv">words = </span><span class="p">(</span><span class="nx">word</span> <span class="k">for</span> <span class="nx">word</span> <span class="k">in</span> <span class="nx">text</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="sr">/\s+/</span><span class="p">)</span> <span class="k">when</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="nx">word</span><span class="p">.</span><span class="nx">length</span> <span class="o">and</span> <span class="nx">word</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="nv">output = </span><span class="p">{}</span>
+    <span class="nx">output</span><span class="p">[</span><span class="nx">words</span><span class="p">[</span><span class="nx">key</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">words</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="k">for</span> <span class="nx">key</span> <span class="k">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">...</span><span class="nx">words</span><span class="p">.</span><span class="nx">length</span><span class="p">]</span>
+    <span class="nx">value</span> <span class="k">for</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="k">of</span> <span class="nx">output</span>
+
+<span class="nv">cl = </span><span class="k">new</span> <span class="nx">Classifier</span><span class="p">.</span><span class="nx">NaiveBayesClassifier</span><span class="p">(</span><span class="nx">getWords</span><span class="p">)</span>
+<span class="nx">cl</span><span class="p">.</span><span class="nx">training</span><span class="p">(</span><span class="s">'Nobody owns the water.'</span><span class="p">,</span><span class="s">'good'</span><span class="p">)</span> 
+<span class="nx">cl</span><span class="p">.</span><span class="nx">classify</span><span class="p">(</span><span class="s">'quick money'</span><span class="p">)</span>
+</pre>
+</div>
+
+
+<p>You can use  'FisherClassifisier' instead of 'NaiveBayesClassifier'.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Classifier maintained by <a href="https://github.com/sonesuke">sonesuke</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
